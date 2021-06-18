@@ -4,13 +4,15 @@ Backend API files of employee system.
 
 ## To install
 
-git clone https://.../employeesys
-cd employeesys
-cp .env.example .env
-# ==> fill in all the parameters in the .env file. Tune them to your needs
-# ==> on your mongodb server, create a db named EMPLOYEES and a collection name TblEmployees
-# ==> paste the contents of the file "/db_restore/TblEmployees.json" into the TblEmployees collection
-npm install
+- git clone https://.../employeesys
+- cd employeesys
+- cp .env.example .env
+
+1. fill in all the parameters in the .env file. Tune them to your needs
+2. on your mongodb server, create a db named EMPLOYEES and a collection name TblEmployees
+3. paste the contents of the file "/db_restore/TblEmployees.json" into the TblEmployees collection
+
+- npm install
 
 ## Start the API server
 
