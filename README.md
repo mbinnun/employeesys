@@ -4,7 +4,7 @@ Backend API files of an employee system example.
 
 ## To install
 
-- git clone https://.../employeesys
+- git clone https://github.com/mbinnun/employeesys
 - cd employeesys
 - cp .env.example .env
 
