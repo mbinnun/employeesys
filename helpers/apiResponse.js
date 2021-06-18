@@ -18,7 +18,8 @@ exports.successResponseWithData = function (res, msg, data) {
 exports.ErrorResponse = function (res, msg) {
 	var data = {
 		status: 0,
-		message: msg,
+		message: "500 Server Error",
+		data: msg
 	};
 	return res.status(500).json(data);
 };
@@ -26,7 +27,8 @@ exports.ErrorResponse = function (res, msg) {
 exports.notFoundResponse = function (res, msg) {
 	var data = {
 		status: 0,
-		message: msg,
+		message: "404 Not Found",
+		//data: msg
 	};
 	return res.status(404).json(data);
 };
@@ -43,7 +45,8 @@ exports.validationErrorWithData = function (res, msg, data) {
 exports.unauthorizedResponse = function (res, msg) {
 	var data = {
 		status: 0,
-		message: msg,
+		message: '401 Unauthorized',
+		data: msg
 	};
 	return res.status(401).json(data);
 };

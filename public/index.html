@@ -1,13 +1,80 @@
 <html>
 
 <head>
-  <title>Nodejs API boilerplate</title>
+  <title>EmployeeSys API</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-  <h1>A boilerplate for REST API Development with Node.js, Express, and MongoDB</h1>
-  <p>Author: <a href="mailto:maitraysuthar@gmail.com">@Maitray Suthar</a></p>
+  <h1>The REST API of EmployeeSys</h1>
+  <p>Author: Moshe Binnun</a></p>
+  <hr>
+  <h2>EmployeeSys Rest API</h2>
+  <p>Backend API files of employee system.</p>
+  <hr>
+  <h2>To install</h2>
+  <p>
+    <strong>
+      git clone <a href="https://.../employeesys">https://.../employeesys</a><br>
+      cd employeesys<br>
+      cp .env.example .env
+    </strong>
+  </p>
+  <p>- fill in all the parameters in the .env file. Tune them to your needs</p>
+  <p>- on your mongodb server, create a db named <strong>EMPLOYEES</strong> and a collection name <strong>TblEmployees</strong></p>
+  <p>- paste the contents of the file <strong>/db_restore/TblEmployees.json</strong> into the TblEmployees collection</p>
+  <p>
+    <strong>npm install</strong>
+  </p>
+  <hr>
+  <h2>Start the API server</h2>
+  <p><strong>npm start</strong></p>
+  <hr>
+  <h2>The Restful APIs collection</h2>
+  <p>
+    <strong>[GET]: <a href="/api/employees/">/api/employees/</a></strong><br>
+    [Description] Fetch the employee list
+  </p>
+  <p>
+    <strong>[GET]: <a href="/api/employees/{:id}">/api/employees/{:id}</a></strong><br>
+    [Description] Fetch the details of an employee by his employee-id
+  </p>
+  <p>
+    <strong>[POST]: <a href="/api/employees/">/api/employees/</a></strong><br>
+    [Params] fname , lname , email , password , social<br>
+    [Description] Register a new employee<br>
+    [Rem] For social registration - the password must be passed as the string 'social', and the social parameter should be g/f/a<br>
+    [Rem] The options for the social parameter are: <b>g</b> = Google / <b>f</b> = Facebook / <b>a</b> = Apple / <b>Empty-String</b> = Regular
+  </p>
+  <p>
+    <strong>[POST]: <a href="/api/employees/login/">/api/employees/login/</a></strong><br>
+    [Params] email , password , social<br>
+    [Description] Login an employee by his e-mail and password<br>
+    [Rem] If that is a social sign in - the password must be passed as the string 'social', and the social parameter should be g/f/a<br>
+    [Rem] The options for the social parameter are: <b>g</b> = Google / <b>f</b> = Facebook / <b>a</b> = Apple / <b>Empty-String</b> = Regular<br>
+    [Rem] The response of this API will contain an <strong>authorization token</strong>. You should pass it as a <strong>Bearer Authorization Header</strong> to the login-protected APIs (according the oAuth2 standard).
+  </p>
+  <p>
+    <strong>[PUT]: <a href="/api/employees/{:id}">/api/employees/{:id}</a></strong><br>
+    [Params] fname , lname , password , admin<br>
+    [Description] Update an employee with new data by his employee-id<br>
+    [Rem] A regular employee can update only himself. An admin can update all the employees.<br>
+    [Rem] The password parameter is <u>optional</u>: if <b>left empty</b>, then the current password will remain unchainged<br>
+    [Rem] The admin parameter is <u>optional</u>: <b>1</b> = make admin / <b>0</b> = revoke admin / <b>Empty-String</b> = admin flag will remain unchainged
+  </p>
+  <p>
+    <strong>[PUT]: <a href="/api/employees/verify/{:code}">/api/employees/verify/{:code}</a></strong><br>
+    [Description] Verify the e-mail (of the currently logged-in employee) by verification code
+  </p>
+  <p>
+    <strong>[POST]: <a href="/api/employees/resend/">/api/employees/resend/</a></strong><br>
+    [Description] Resend an e-mail with the verification code (to the currently logged-in employee)
+  </p>
+  <p>
+    <strong>[DELETE]: <a href="/api/employees/{:id}">/api/employees/{:id}</a></strong><br>
+    [Description] Delete an employee by his employee-id<br>
+    [Rem] Any employee is allowed to delete himself
+  </p>
 </body>
 
 </html>
