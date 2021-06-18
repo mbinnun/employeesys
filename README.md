@@ -1,4 +1,4 @@
-## === EmployeeSys Rest API ===
+## EmployeeSys Rest API
 
 Backend API files of employee system.
 
